@@ -18,16 +18,16 @@ let pop = {
 }
 
 let popWeights = {
-    "Mining, Logging and Construction" : {"Computer and Math" : 0.9, "Legal" : 0.2},
-    "Manufacturing" : {},
-    "Trade, Transportation and Utilities" : {},
-    "Information" : {},
-    "Financial Activies" : {},
-    "Proffesional and Buisness Services" : {},
-    "Education and Health Services" : {},
-    "Leisure and Hospitality" : {},
-    "Other Services" : {},
-    "Government" : {}
+    "Mining, Logging and Construction": { "Farming, Fishing, Forestry": 0.35, "Building and Grounds Cleaning": 0.2, "Construction and Extraction": 0.45},
+    "Manufacturing": { "Production": 0.7, "Architechture and Engineering": 0.3,},
+    "Trade, Transportation and Utilities": { "Transportation and Material Moving": 0.6, "Personal Care and Service": 0.2, "Protective Services": 0.2},
+    "Information": { "Computer and Math": 0.6, "Buisness and Finance": 0.1, "Office and Admin": 0.3,},
+    "Financial Activies": { "Buisness and Finance": 0.6, "Office and Admin": 0.15, "Sales and Related": 0.25},
+    "Professional and Buisness Services": { "Buisness and Finance": 0.5, "Legal": 0.1, "Office and Admin": 0.15, "Sales and Related": 0.15, "Production": 0.1},
+    "Education and Health Services": { "Education and Training": 0.34, "Healthcare Practitioners": 0.33, "Healthcare Support": 0.33},
+    "Leisure and Hospitality": { "Art and Design": 0.25, "Personal Care and Service": 0.4, "Community and Social Service": 0.35},
+    "Other Services": { "Life Physical and Social Science": 1},
+    "Government": { "Community and Social Service": 0.2, "Protective Services": 0.5, "Transportation and Material Moving": 0.3}
 }
 
 //for each sub catagory, label the percent
@@ -41,7 +41,7 @@ let data = {
     "Office and Admin" : 0.65,
     "Architechture and Engineering" : 0.61,
     "Life Physical and Social Science" : 0.54,
-    "Community and Socail Service" : 0.37,
+    "Community and Social Service" : 0.37,
     "Sales and Related" : 0.28,
     "Personal Care and Service" : 0.26,
     "Protective Services" : 0.6,
