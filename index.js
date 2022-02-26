@@ -10,7 +10,7 @@ let pop = {
     "Trade, Transportation and Utilities" : 332600,
     "Information" : 13900,
     "Financial Activies" : 87600,
-    "Proffesional and Buisness Services" : 277500,
+    "Professional and Buisness Services" : 277500,
     "Education and Health Services" : 223500,
     "Leisure and Hospitality" : 13300,
     "Other Services" : 59300,
@@ -68,10 +68,10 @@ function getEstimatedPopulation ()
     //calculate percent that applies to each population catagory
     for (const [majorCatagory, population] of Object.entries(pop)) 
     {
-        let weights = popWeights(majorCatagory);
+        let weights = popWeights[majorCatagory];
         let accumulator = 0;
         let it = 0;
-        for (const [weightCatagory, weight] of Object.entries(weights))
+        for (const [weightCatagory, weight] of Object.entries(popWeights))
         {
             accumulator += (weight * population * data[weightCatagory]);
             it++;
@@ -96,7 +96,7 @@ function UpdatePopulationList(pMLC, pMAN, pTTU, pINF, pFIN, pPBS, pEHS, pLAH, pO
     pop["Trade, Transportation and Utilities"] = pTTU;
     pop["Information"] = pINF;
     pop["Financial Activies"] = pFIN;
-    pop["Proffesional and Buisness Services"] = pPBS;
+    pop["Professional and Buisness Services"] = pPBS;
     pop["Education and Health Services"] = pEHS;
     pop["Leisure and Hospitality"] = pLAH;
     pop["Other Services"] = pOTH;
