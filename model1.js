@@ -60,23 +60,26 @@ function getEstimatedPopulation() {
     //SUM THEM ALL FOR EACH CATAGORy
     //DIVIDE BY TOTAL CATAGOY COUNT
     //calculate percent that applies to each population catagory
+    let avTotal = 0;
+    let avIterator = 0;
     for (const [majorCatagory, population] of Object.entries(pop)) {
         let weights = popWeights[majorCatagory];
         let accumulator = 0;
-        let it = 0;
-        for (const [weightCatagory, weight] of Object.entries(popWeights)) {
+        for (const [weightCatagory, weight] of Object.entries(weights)) {
             accumulator += (weight * population * data[weightCatagory]);
-            it++;
         }
         console.log("\n");
         console.log(majorCatagory)
-        out = accumulator / it;
+        out = (accumulator / pop[majorCatagory]) * 100;
         console.log(out);
-        console.log("undivided ammount");
-        console.log(accumulator);
 
+        avTotal = avTotal + out;
+        avIterator++;
     }
-    console.log(out);
+
+    console.log("\n\n\n");
+    console.log("Average");
+    console.log(avTotal/avIterator);
     //apply the percentage to each catagory
 
 }
