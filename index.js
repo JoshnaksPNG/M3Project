@@ -4,13 +4,14 @@ const Math = require('math.js');
 
 let workbook = new Excel.Workbook();
 
+
 let pop = {
     "Mining, Logging and Construction" : 109600,
     "Manufacturing" : 142200,
     "Trade, Transportation and Utilities" : 332600,
     "Information" : 13900,
-    "Financial Activies" : 87600,
-    "Professional and Buisness Services" : 277500,
+    "Financial Activities" : 87600,
+    "Proffesional and Buisness Services" : 277500,
     "Education and Health Services" : 223500,
     "Leisure and Hospitality" : 13300,
     "Other Services" : 59300,
@@ -22,7 +23,7 @@ let popWeights = {
     "Manufacturing": { "Production": 0.7, "Architechture and Engineering": 0.3,},
     "Trade, Transportation and Utilities": { "Transportation and Material Moving": 0.6, "Personal Care and Service": 0.2, "Protective Services": 0.2},
     "Information": { "Computer and Math": 0.6, "Buisness and Finance": 0.1, "Office and Admin": 0.3,},
-    "Financial Activies": { "Buisness and Finance": 0.6, "Office and Admin": 0.15, "Sales and Related": 0.25},
+    "Financial Activities": { "Buisness and Finance": 0.6, "Office and Admin": 0.15, "Sales and Related": 0.25},
     "Professional and Buisness Services": { "Buisness and Finance": 0.5, "Legal": 0.1, "Office and Admin": 0.15, "Sales and Related": 0.15, "Production": 0.1},
     "Education and Health Services": { "Education and Training": 0.34, "Healthcare Practitioners": 0.33, "Healthcare Support": 0.33},
     "Leisure and Hospitality": { "Art and Design": 0.25, "Personal Care and Service": 0.4, "Community and Social Service": 0.35},
@@ -95,7 +96,7 @@ function UpdatePopulationList(pMLC, pMAN, pTTU, pINF, pFIN, pPBS, pEHS, pLAH, pO
     pop["Manufacturing"] = pMAN;
     pop["Trade, Transportation and Utilities"] = pTTU;
     pop["Information"] = pINF;
-    pop["Financial Activies"] = pFIN;
+    pop["Financial Activities"] = pFIN;
     pop["Professional and Buisness Services"] = pPBS;
     pop["Education and Health Services"] = pEHS;
     pop["Leisure and Hospitality"] = pLAH;
