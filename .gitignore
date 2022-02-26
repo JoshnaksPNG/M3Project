@@ -1,0 +1,4 @@
+# Excluded VS Files #
+slnx.sqlite
+applicationhost.config
+*.suo
