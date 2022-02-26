@@ -20,6 +20,7 @@ class Industry
     constructor(name, func)
     {
         this.name = name;
+        this.currentWorkers;
         this.workGrowth = func;
     }
 }
