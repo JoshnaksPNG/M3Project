@@ -10,7 +10,7 @@ let pop = {
     "Trade, Transportation and Utilities" : 332600,
     "Information" : 13900,
     "Financial Activities" : 87600,
-    "Proffesional and Buisness Services" : 277500,
+    "Professional and Buisness Services" : 277500,
     "Education and Health Services" : 223500,
     "Leisure and Hospitality" : 13300,
     "Other Services" : 59300,
