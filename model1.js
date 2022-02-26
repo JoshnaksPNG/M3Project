@@ -10,7 +10,7 @@ let pop = {
     "Other Services": 59300,
     "Government": 206700
 }
-
+/*
 let popWeights = {
     "Mining, Logging and Construction": { "Farming, Fishing, Forestry": 0.35, "Building and Grounds Cleaning": 0.2, "Construction and Extraction": 0.45 },
     "Manufacturing": { "Production": 0.7, "Architechture and Engineering": 0.3, },
@@ -23,32 +23,11 @@ let popWeights = {
     "Other Services": { "Life Physical and Social Science": 1 },
     "Government": { "Community and Social Service": 0.2, "Protective Services": 0.5, "Transportation and Material Moving": 0.3 }
 }
-
+*/
 //for each sub catagory, label the percent
-let data = {
-    "Computer and Math": 1,
-    "Education and Training": 0.98,
-    "Legal": 0.97,
-    "Buisness and Finance": 0.88,
-    "Management": 0.87,
-    "Art and Design": 0.76,
-    "Office and Admin": 0.65,
-    "Architechture and Engineering": 0.61,
-    "Life Physical and Social Science": 0.54,
-    "Community and Social Service": 0.37,
-    "Sales and Related": 0.28,
-    "Personal Care and Service": 0.26,
-    "Protective Services": 0.6,
-    "Healthcare Practitioners": 0.5,
-    "Transportation and Material Moving": 0.3,
-    "Healthcare Support": 0.2,
-    "Farming, Fishing, Forestry": 0.1,
-    "Production": 0.1,
-    "Installation and Maitenence": 0.1,
-    "Construction and Extraction": 0.0,
-    "Food Preperation": 0.0,
-    "Building and Grounds Cleaning": 0.0
-}
+
+
+
 
 getEstimatedPopulation("Seattle, Washington");
 UpdatePopulationList(30700, 33500, 94100, 9800, 44100, 71900, 79600, 47500, 18300, 65200);
@@ -84,7 +63,6 @@ function getEstimatedPopulation(name) {
         avTotal = avTotal + out;
         avIterator++;
     }
-
     console.log("\n\n\n");
     console.log("Average");
     console.log(avTotal/avIterator);
@@ -93,6 +71,30 @@ function getEstimatedPopulation(name) {
 }
 
 function UpdatePopulationList(pMLC, pMAN, pTTU, pINF, pFIN, pPBS, pEHS, pLAH, pOTH, pGOV) {
+    let data = {
+        "Computer and Math": pMLC/pMLC,
+        "Education and Training": 0.98,
+        "Legal": 0.97,
+        "Buisness and Finance": 0.88,
+        "Management": 0.87,
+        "Art and Design": 0.76,
+        "Office and Admin": 0.65,
+        "Architechture and Engineering": 0.61,
+        "Life Physical and Social Science": 0.54,
+        "Community and Social Service": 0.37,
+        "Sales and Related": 0.28,
+        "Personal Care and Service": 0.26,
+        "Protective Services": 0.6,
+        "Healthcare Practitioners": 0.5,
+        "Transportation and Material Moving": 0.3,
+        "Healthcare Support": 0.2,
+        "Farming, Fishing, Forestry": 0.1,
+        "Production": 0.1,
+        "Installation and Maitenence": 0.1,
+        "Construction and Extraction": 0.0,
+        "Food Preperation": 0.0,
+        "Building and Grounds Cleaning": 0.0
+    }
     pop["Mining, Logging and Construction"] = pMLC;
     pop["Manufacturing"] = pMAN;
     pop["Trade, Transportation and Utilities"] = pTTU;
