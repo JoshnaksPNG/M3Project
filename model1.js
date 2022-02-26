@@ -47,17 +47,25 @@ function getEstimatedPopulation(name) {
     //DIVIDE BY TOTAL CATAGOY COUNT
     //calculate percent that applies to each population catagory
     console.log("Estimated % of individuals who can work remotly for the city of " + name);
+
+    let cTotal = 0;
+    for (const [label, value] of Object.entries(pop))
+    {
+        cTotal += value;
+    }
+    console.log("Total workers: " + cTotal);
+
     let avTotal = 0;
     let avIterator = 0;
     for (const [majorCatagory, population] of Object.entries(pop)) {
         let weights = popWeights[majorCatagory];
         let accumulator = 0;
         for (const [weightCatagory, weight] of Object.entries(weights)) {
-            accumulator += (weight * population * data[weightCatagory]);
+            accumulator += (weight * (population) * (data[weightCatagory]) );
         }
         console.log("\n");
         console.log(majorCatagory)
-        out = (accumulator / pop[majorCatagory]) * 100;
+        out = (accumulator / cTotal) * 1000;
         console.log(out);
 
         avTotal = avTotal + out;
@@ -105,4 +113,9 @@ function UpdatePopulationList(pMLC, pMAN, pTTU, pINF, pFIN, pPBS, pEHS, pLAH, pO
     pop["Leisure and Hospitality"] = pLAH;
     pop["Other Services"] = pOTH;
     pop["Government"] = pGOV;
+}
+
+function evaluateWorkersWhoCanOnline(popObj, )
+{
+
 }
