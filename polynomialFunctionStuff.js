@@ -87,7 +87,3 @@ class logFunction
         return this.yDisp + (this.c * ((Math.log(x - this.xDisp)/Math.log(this.base))));
     }
 }
-
-const cum = new logFunction(10, 1, 1, 0);
-
-console.log(cum.eval(1001));
