@@ -66,23 +66,39 @@ function getEstimatedPopulation ()
     //SUM THEM ALL FOR EACH CATAGORy
     //DIVIDE BY TOTAL CATAGOY COUNT
     //calculate percent that applies to each population catagory
-
-    let total = 0;
-    for (const [title, value] of Object.entries(data)) 
+    for (const [majorCatagory, population] of Object.entries(pop)) 
     {
-        //get the weights dictionary for each thing
-        let weightObj = weights[title];
+        let weights = popWeights(majorCatagory);
         let accumulator = 0;
         let it = 0;
-        for (const [wTitle, wValue] of Object.entries(weightObj))
+        for (const [weightCatagory, weight] of Object.entries(weights))
         {
-            accumulator += ((pop[wTitle]) * wValue * value);
+            accumulator += (weight * population * data[weightCatagory]);
             it++;
         }
+        console.log("\n");
+        console.log(majorCatagory)
         out = accumulator / it;
-        total += out;
+        console.log(out);
+        console.log("undivided ammount");
+        console.log(accumulator);
+
     }
     console.log(out);
     //apply the percentage to each catagory
 
+}
+
+function UpdatePopulationList(pMLC, pMAN, pTTU, pINF, pFIN, pPBS, pEHS, pLAH, pOTH, pGOV)
+{
+    pop["Mining, Logging and Construction"] = pMLC;
+    pop["Manufacturing"] = pMAN;
+    pop["Trade, Transportation and Utilities"] = pTTU;
+    pop["Information"] = pINF;
+    pop["Financial Activies"] = pFIN;
+    pop["Proffesional and Buisness Services"] = pPBS;
+    pop["Education and Health Services"] = pEHS;
+    pop["Leisure and Hospitality"] = pLAH;
+    pop["Other Services"] = pOTH;
+    pop["Government"] = pGOV;
 }
