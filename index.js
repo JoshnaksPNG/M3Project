@@ -4,6 +4,32 @@ const Math = require('math.js');
 
 let workbook = new Excel.Workbook();
 
+let pop = {
+    "Mining, Logging and Construction" : 109600,
+    "Manufacturing" : 142200,
+    "Trade, Transportation and Utilities" : 332600,
+    "Information" : 13900,
+    "Financial Activies" : 87600,
+    "Proffesional and Buisness Services" : 277500,
+    "Education and Health Services" : 223500,
+    "Leisure and Hospitality" : 13300,
+    "Other Services" : 59300,
+    "Government" : 206700
+}
+
+let popWeights = {
+    "Mining, Logging and Construction" : {"Computer and Math" : 0.9, "Legal" : 0.2},
+    "Manufacturing" : {},
+    "Trade, Transportation and Utilities" : {},
+    "Information" : {},
+    "Financial Activies" : {},
+    "Proffesional and Buisness Services" : {},
+    "Education and Health Services" : {},
+    "Leisure and Hospitality" : {},
+    "Other Services" : {},
+    "Government" : {}
+}
+
 //for each sub catagory, label the percent
 let data = {
     "Computer and Math" : 1,
@@ -30,43 +56,8 @@ let data = {
     "Building and Grounds Cleaning" : 0.0
 }
 
-//assign each sub catagory to main catagories by weights
-let weights = {
-    "Computer and Math" : {"Information" : 0.90, "Financial Activities" : 0.1},
-    "Education and Training" : {"Education and Health Services" : 1},
-    "Legal" : {"Proffesional and Buisness Services" : 1},
-    "Buisness and Finance" : {"Proffesional and Buisness Services" : 1},
-    "Management" : {"Proffesional and Buisness Services" : 1},
-    "Art and Design" : {"Leisure and Hospitality" : 1},
-    "Office and Admin" : {"Proffesional and Buisness Services" : 1},
-    "Architechture and Engineering" : {"Proffesional and Buisness Services" : 1},
-    "Life Physical and Social Science" : {"Proffesional and Buisness Services" : 1},
-    "Community and Socail Service" : {"Proffesional and Buisness Services" : 1},
-    "Sales and Related" : {"Proffesional and Buisness Services" : 1},
-    "Personal Care and Service" : {"Proffesional and Buisness Services" : 1},
-    "Protective Services" : {"Proffesional and Buisness Services" : 1},
-    "Healthcare Practitioners" : {"Proffesional and Buisness Services" : 1},
-    "Transportation and Material Moving" : {"Proffesional and Buisness Services" : 1},
-    "Healthcare Support" : {"Proffesional and Buisness Services" : 1},
-    "Farming, Fishing, Forestry" : {"Proffesional and Buisness Services" : 1},
-    "Production" : {"Proffesional and Buisness Services" : 1},
-    "Installation and Maitenence" : {"Proffesional and Buisness Services" : 1},
-    "Construction and Extraction" : {"Proffesional and Buisness Services" : 1},
-    "Food Preperation" : {"Proffesional and Buisness Services" : 1},
-    "Building and Grounds Cleaning" : {"Proffesional and Buisness Services" : 1}
-}
-let pop = {
-    "Mining, Logging and Construction" : 109600,
-    "Manufacturing" : 142200,
-    "Trade, Transportation and Utilities" : 332600,
-    "Information" : 13900,
-    "Financial Activies" : 87600,
-    "Proffesional and Buisness Services" : 277500,
-    "Education and Health Services" : 223500,
-    "Leisure and Hospitality" : 13300,
-    "Other Services" : 59300,
-    "Government" : 206700
-}
+
+getEstimatedPopulation();
 
 function getEstimatedPopulation ()
 {
@@ -75,6 +66,8 @@ function getEstimatedPopulation ()
     //SUM THEM ALL FOR EACH CATAGORy
     //DIVIDE BY TOTAL CATAGOY COUNT
     //calculate percent that applies to each population catagory
+
+    let total = 0;
     for (const [title, value] of Object.entries(data)) 
     {
         //get the weights dictionary for each thing
@@ -87,13 +80,9 @@ function getEstimatedPopulation ()
             it++;
         }
         out = accumulator / it;
-
-        if (title == "Computer and Math")
-        {
-            console.log(out);
-        } 
+        total += out;
     }
-    
+    console.log(out);
     //apply the percentage to each catagory
 
 }
