@@ -1,4 +1,3 @@
-
 let pop = {
     "Mining, Logging and Construction": 109600,
     "Manufacturing": 142200,
@@ -51,15 +50,24 @@ let data = {
     "Building and Grounds Cleaning": 0.0
 }
 
+getEstimatedPopulation("Seattle, Washington");
+UpdatePopulationList(30700, 33500, 94100, 9800, 44100, 71900, 79600, 47500, 18300, 65200);
+getEstimatedPopulation("Omaha, Nebraska");
+UpdatePopulationList(10300, 27200, 63900, 2500, 13000, 26100, 50500, 18200, 7700, 28300);
+getEstimatedPopulation("Scranton, Pensylvanianaiania");
+UpdatePopulationList(146240, 103120, 146100, 73120, 25592, 47528, 23900, 69700, 73120, 26560);
+getEstimatedPopulation("Liverpool, UK");
+UpdatePopulationList(4100, 5700, 1400, 4000, 3045, 5655, 9700, 9500, 2400, 9700);
+getEstimatedPopulation("Barry, Wales");
 
-getEstimatedPopulation();
 
-function getEstimatedPopulation() {
+function getEstimatedPopulation(name) {
     //TAKE EACH CATAGOY
     //MULTIPY WEIGHT * POPULATION * REMOTEREADY 
     //SUM THEM ALL FOR EACH CATAGORy
     //DIVIDE BY TOTAL CATAGOY COUNT
     //calculate percent that applies to each population catagory
+    console.log("Estimated % of individuals who can work remotly for the city of " + name);
     let avTotal = 0;
     let avIterator = 0;
     for (const [majorCatagory, population] of Object.entries(pop)) {
