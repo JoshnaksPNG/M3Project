@@ -41,4 +41,4 @@ for(const property in JobBreakdown)
 }
 
 console.log(sum);
-console.log((sum/Employed)*100);
+console.log((sum / Employed) * 100);
