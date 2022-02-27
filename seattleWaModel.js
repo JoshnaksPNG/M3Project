@@ -30,6 +30,9 @@ const SeattleJobBreakdown =
 
 const SeattleEmployed = 1763000;
 
+//years past 2021
+const years = 6;
+
 //Source: Remote Work Data Sheet 3
 const JobEstimatedFromHome =
 {
@@ -57,12 +60,38 @@ const JobEstimatedFromHome =
     transportation: .03
 }
 
+const JobEstimatedGrowth =
+{
+    management: 0.009,
+    buisiness: 0.031,
+    computer: 0.031,
+    engineering: -.039,
+    social: .0,
+    community: .038,
+    legal: .0,
+    library: -.009,
+    arts: .0,
+    practitioners: -.022,
+    support: .121,
+    protective: .010,
+    serving: -.013,
+    grounds: -0.007,
+    personal: -.056,
+    sales: -.021,
+    office: -0.031,
+    farming: .0,
+    construction: 0.34,
+    installation: .021,
+    production: -.032,
+    transportation: .023
+}
+
 //For Each Field, Get number of people, then get number that can work from home for said field, and sum them together.
 let sum = 0;
 for(const property in SeattleJobBreakdown)
 {
     let fieldWorkers = SeattleJobBreakdown[property] * SeattleEmployed;
-    let atHome = fieldWorkers * JobEstimatedFromHome[property];
+    let atHome = (fieldWorkers + (fieldWorkers * JobEstimatedGrowth[property] * years)) * JobEstimatedFromHome[property];
 
     sum += atHome;
 }

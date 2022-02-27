@@ -30,12 +30,28 @@ const JobEstimatedFromHome =
     elementary: .02
 }
 
+//years past 2021
+const years = 6;
+
+const JobEstimatedGrowth =
+{
+    management: .23,
+    professional: 0.23,
+    technical: -0.007,
+    admin: .013,
+    skilled: -.013,
+    caring: 0.05,
+    sales: -.011,
+    process: -0.011,
+    elementary: -.013
+}
+
 //For Each Field, Get number of people, then get number that can work from home for said field, and sum them together.
 let sum = 0;
 for(const property in JobBreakdown)
 {
     let fieldWorkers = JobBreakdown[property] * Employed;
-    let atHome = fieldWorkers * JobEstimatedFromHome[property];
+    let atHome = (fieldWorkers + (fieldWorkers * JobEstimatedGrowth[property] * years)) * JobEstimatedFromHome[property];
 
     sum += atHome;
 }

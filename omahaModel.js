@@ -29,6 +29,9 @@ const OmahaJobBreakdown =
 //Source: https://www.bls.gov/regions/midwest/ne_omaha_msa.htm
 const OmahaEmployed = 492400;
 
+//years past 2021
+const years = 6;
+
 //Source: Remote Work Data Sheet 3
 const JobEstimatedFromHome =
 {
@@ -56,12 +59,38 @@ const JobEstimatedFromHome =
     transportation: .03
 }
 
+const JobEstimatedGrowth =
+{
+    management: 0.062,
+    buisiness: 0.014,
+    computer: 0.26,
+    engineering: .0,
+    social: .066,
+    community: .026,
+    legal: .0,
+    library: .018,
+    arts: -.043,
+    practitioners: .022,
+    support: .1,
+    protective: -.032,
+    serving: -.007,
+    grounds: 0,
+    personal: -.059,
+    sales: -.025,
+    office: -0.036,
+    farming: .0,
+    construction: 0.42,
+    installation: .029,
+    production: -.011,
+    transportation: .012
+}
+
 //For Each Field, Get number of people, then get number that can work from home for said field, and sum them together.
 let sum = 0;
 for(const property in OmahaJobBreakdown)
 {
     let fieldWorkers = OmahaJobBreakdown[property] * OmahaEmployed;
-    let atHome = fieldWorkers * JobEstimatedFromHome[property];
+    let atHome = (fieldWorkers + (fieldWorkers * JobEstimatedGrowth[property] * years)) * JobEstimatedFromHome[property];
 
     sum += atHome;
 }

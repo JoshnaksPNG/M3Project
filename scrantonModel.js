@@ -29,6 +29,9 @@ const JobBreakdown =
 //Source https://www.bls.gov/regions/mid-atlantic/pa_scranton_msa.htm
 const Employed = 263700;
 
+//years past 2021
+const years = 6;
+
 //Source: Remote Work Data Sheet 3
 const JobEstimatedFromHome =
 {
@@ -56,12 +59,38 @@ const JobEstimatedFromHome =
     transportation: .03
 }
 
+const JobEstimatedGrowth =
+{
+    management: 0.040,
+    buisiness: 0.014,
+    computer: -0.029,
+    engineering: -0.018,
+    social: 0.05,
+    community: .0,
+    legal: .0,
+    library: -.005,
+    arts: 0.031,
+    practitioners: .007,
+    support: .142,
+    protective: .012,
+    serving: -.035,
+    grounds: -.031,
+    personal: -.121,
+    sales: -.016,
+    office: -0.036,
+    farming: .0,
+    construction: 0,
+    installation: .032,
+    production: -.003,
+    transportation: .064
+}
+
 //For Each Field, Get number of people, then get number that can work from home for said field, and sum them together.
 let sum = 0;
 for(const property in JobBreakdown)
 {
     let fieldWorkers = JobBreakdown[property] * Employed;
-    let atHome = fieldWorkers * JobEstimatedFromHome[property];
+    let atHome = (fieldWorkers + (fieldWorkers * JobEstimatedGrowth[property] * years)) * JobEstimatedFromHome[property];
 
     sum += atHome;
 }
