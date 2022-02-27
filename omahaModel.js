@@ -30,7 +30,7 @@ const OmahaJobBreakdown =
 const OmahaEmployed = 492400;
 
 //years past 2021
-const years = 6;
+const years = 3;
 
 //Source: Remote Work Data Sheet 3
 const JobEstimatedFromHome =

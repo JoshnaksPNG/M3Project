@@ -17,7 +17,7 @@ const JobBreakdown =
 const Employed = 765200;
 
 //years past 2021
-const years = 6;
+const years = 3;
 
 //Source: Simplified From Remote Work Data Sheet 3
 const JobEstimatedFromHome =

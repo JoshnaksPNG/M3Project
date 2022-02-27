@@ -31,7 +31,7 @@ const JobEstimatedFromHome =
 }
 
 //years past 2021
-const years = 0;
+const years = 6;
 
 const JobEstimatedGrowth =
 {

@@ -31,7 +31,7 @@ const SeattleJobBreakdown =
 const SeattleEmployed = 1763000;
 
 //years past 2021
-const years = 6;
+const years = 3;
 
 //Source: Remote Work Data Sheet 3
 const JobEstimatedFromHome =
