@@ -1,4 +1,5 @@
 # Excluded VS Files #
 slnx.sqlite
 applicationhost.config
+VSWorkspaceState.json
 *.suo
