@@ -1,5 +1,5 @@
 
-//Source: https://liverpool.gov.uk/council/key-statistics-and-data/headline-indicators/labour-market/
+//Source: https://www.nomisweb.co.uk/reports/localarea?compare=W37000342
 const JobBreakdown = 
 {
     management: 0.087,
@@ -13,7 +13,7 @@ const JobBreakdown =
     elementary: 0.108
 };
 
-//Source: https://www.nomisweb.co.uk/reports/lmp/lep/1925185554/report.aspx#tabempunemp
+//Source: https://www.nomisweb.co.uk/reports/localarea?compare=W37000342
 const Employed = 24594;
 
 //Source: Simplified From Remote Work Data Sheet 3
