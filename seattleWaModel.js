@@ -31,7 +31,7 @@ const SeattleJobBreakdown =
 const SeattleEmployed = 1763000;
 
 //years past 2021
-const years = 6;
+const years = 3;
 
 //Source: Remote Work Data Sheet 3
 const JobEstimatedFromHome =
@@ -88,13 +88,15 @@ const JobEstimatedGrowth =
 
 //For Each Field, Get number of people, then get number that can work from home for said field, and sum them together.
 let sum = 0;
+let newEmployed = 0;
 for(const property in SeattleJobBreakdown)
 {
     let fieldWorkers = SeattleJobBreakdown[property] * SeattleEmployed;
     let atHome = (fieldWorkers + (fieldWorkers * JobEstimatedGrowth[property] * years)) * JobEstimatedFromHome[property];
 
     sum += atHome;
+    newEmployed += (fieldWorkers + (fieldWorkers * JobEstimatedGrowth[property] * years));
 }
 
 console.log(sum);
-console.log((sum/SeattleEmployed)*100);
+console.log((sum/newEmployed)*100);
